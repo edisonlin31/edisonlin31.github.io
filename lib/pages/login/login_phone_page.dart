@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -85,6 +86,14 @@ class _LoginPhonePage extends State<LoginPhonePage> with AutoRouteAware {
       if (phoneNumber != null) {
         if (kIsWeb) {
           final result = await auth.signInWithPhoneNumber(phoneNumber);
+          if (kIsWeb) {
+            final el =
+                window.document.getElementById('__ff-recaptcha-container');
+            if (el != null) {
+              el.remove();
+            }
+          }
+
           setState(() {
             _verificationId = result.verificationId;
           });
