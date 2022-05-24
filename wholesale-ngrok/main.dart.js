@@ -90440,7 +90440,7 @@ $1(a){return new A.p1(A.a([],t.iw))},
 $S:689}
 A.p1.prototype={}
 A.aF5.prototype={
-$1(a){return new A.pI(new A.aBJ($.aIT().a,"http://0ab8-202-154-185-227.ngrok.io//wholesale/api/v1"))},
+$1(a){return new A.pI(new A.aBJ($.aIT().a,"https://0ab8-202-154-185-227.ngrok.io//wholesale/api/v1"))},
 $S:690}
 A.pI.prototype={}
 A.Mn.prototype={}
