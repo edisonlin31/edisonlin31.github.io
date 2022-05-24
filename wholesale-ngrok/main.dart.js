@@ -90392,7 +90392,7 @@ A.aqW.prototype={
 $0(){return B.ac},
 $S:36}
 A.aDv.prototype={
-$1(a){return new A.nZ(new A.arG($.aIT().a,"http://0ab8-202-154-185-227.ngrok.io/wholesale/api/v1"))},
+$1(a){return new A.nZ(new A.arG($.aIT().a,"https://0ab8-202-154-185-227.ngrok.io/wholesale/api/v1"))},
 $S:684}
 A.nZ.prototype={}
 A.aDx.prototype={
