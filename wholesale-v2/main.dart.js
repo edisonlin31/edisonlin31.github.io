@@ -110482,7 +110482,7 @@ s=p.w
 s.toString
 r=p.x
 q=p.at
-q=q==null?o:q.gP2()
+q=q==null?o:q.gP2()/100
 n.push(new A.Ld(s,q,r===B.bi,o))
 n=A.xh(A.bt(n,B.ad,B.r,B.x,B.L),o)}return A.j6(B.asZ,o,n,new A.a5d(m,o),o,o,B.D,o,!0,o,o,!0,!1,!1,o,o,o,o,o,o,o,!0,o,o)}}
 A.aK0.prototype={
@@ -110823,13 +110823,14 @@ A.Ld.prototype={
 Ui(a,b,c){var s=null
 return A.bz(A.a([A.af(b,s,s,s,s,a,s,s),A.af(c,s,s,s,s,a,s,s)],t.p),B.H,s,B.el,B.x,s,s)},
 Uh(a,b){return this.Ui(null,a,b)},
-E(a,b){var s,r=this,q=null,p=r.c,o=t.p,n=A.a([r.Uh("Subtotal","$"+B.e.ab(A.V9(p),2))],o)
-if(r.e){s=r.d
+E(a,b){var s,r=this,q=null,p=r.c,o=t.p,n=A.a([r.Uh("Subtotal","$"+B.e.ab(A.V9(p),2))],o),m=r.e
+if(m){s=r.d
 B.b.K(n,A.a([B.cm,r.Uh("Delivery Fee",s==null?"-":"$"+B.e.ab(s,2))],o))}n.push(B.ix)
 p=A.V9(p)
-o=r.d
-p=B.e.ab(p+(o==null?0:o),2)
-n.push(r.Ui(A.ie(q,16),"Total Payment","$"+p))
+if(m){o=r.d
+if(o==null)o=0}else o=0
+o=B.e.ab(p+o,2)
+n.push(r.Ui(A.ie(q,16),"Total Payment","$"+o))
 return A.a4(q,A.bt(n,B.H,B.r,B.x,B.L),B.h,B.n,q,q,q,q,q,B.atU,B.an,q,q,q)}}
 A.W2.prototype={
 hQ(a,b,c){c.ys(0,$.aZo(),new A.ajs(b),t.FB)
