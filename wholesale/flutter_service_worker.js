@@ -3,20 +3,20 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "116a4bda3d9be623dafcc11776df2491",
-"index.html": "4db3287ff3b474143f070b97186929ee",
-"/": "4db3287ff3b474143f070b97186929ee",
-"main.dart.js": "0a30d6b1f354eff9405ef4cf1924425b",
-"flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
+  "version.json": "c3a11606e53bd0d40c51ea3224584ddf",
+"index.html": "223997c48b876dc852957b522fcfb422",
+"/": "223997c48b876dc852957b522fcfb422",
+"main.dart.js": "71e8329c31d58fbe4cbbe82fdfff0fd5",
+"flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
 "logo.png": "f4f61fa8405c27e1d011350a34a928a6",
 "icons/Icon-192.png": "86db90978e96849792a1bb70fe5ac3fa",
 "icons/Icon-maskable-192.png": "86db90978e96849792a1bb70fe5ac3fa",
 "icons/Icon-maskable-512.png": "0663977feba0b13b9a6c1fe8029360c7",
 "icons/Icon-512.png": "0663977feba0b13b9a6c1fe8029360c7",
 "manifest.json": "9d9ddafd1676da0b72a60b204921101f",
-"assets/AssetManifest.json": "7b2ce77acb8b2e6080fcfd576c5b25d0",
-"assets/NOTICES": "20992cec3d74e9a8b2e62f01700d4e9a",
-"assets/FontManifest.json": "0b04d9787048e6855c1a94a7f9a6d48d",
+"assets/AssetManifest.json": "6c486bc9cc6e25b51c50cd9132f3edb9",
+"assets/NOTICES": "7006c427cd3f49162a0ef316e3af8046",
+"assets/FontManifest.json": "7f2260b0a4de7aa59bc4cfad869f6333",
 "assets/packages/libphonenumber_plugin/js/libphonenumber.js": "8578efe7b5232496cd05944ae9ae8ce8",
 "assets/packages/libphonenumber_plugin/js/stringbuffer.js": "5d8ac81dc841740b2a94e8daa7be8027",
 "assets/packages/libphonenumber_plugin/assets/js/libphonenumber.js": "8578efe7b5232496cd05944ae9ae8ce8",
@@ -299,7 +299,7 @@ const RESOURCES = {
 "assets/packages/intl_phone_number_input/assets/flags/vu.png": "3f201fdfb6d669a64c35c20a801016d1",
 "assets/packages/intl_phone_number_input/assets/flags/tj.png": "c73b793f2acd262e71b9236e64c77636",
 "assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
-"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
+"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/assets/images/food_1.jpeg": "c88bc9c0203511b0bd640ec60be17028",
 "assets/assets/images/logo.png": "d6008013b41567522e558047f42d9bd6",
 "assets/assets/images/google.svg": "752536d8059d2a92ec94472b9b6de366",
@@ -308,10 +308,10 @@ const RESOURCES = {
 "assets/assets/fonts/Roboto-Medium.ttf": "68ea4734cf86bd544650aee05137d7bb",
 "assets/assets/fonts/Roboto-Regular.ttf": "8a36205bd9b83e03af0591a004bc97f4",
 "assets/assets/fonts/Roboto-Bold.ttf": "b8e42971dec8d49207a8c8e2b919a6ac",
-"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
-"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
-"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
-"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba"
+"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
+"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
+"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
+"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -319,7 +319,6 @@ const RESOURCES = {
 const CORE = [
   "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -418,9 +417,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
