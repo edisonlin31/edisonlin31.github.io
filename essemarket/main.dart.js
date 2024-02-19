@@ -111620,7 +111620,7 @@ if(g==null)g=""
 f=a.r
 if(f==null)f=""
 s=6
-return A.x(J.ef(l,A.d(["first_name",a.b,"last_name",k,"phone",i,"address",h,"unit",g,"postal_code",f],t.N,t.u)),$async$EB)
+return A.x(J.ef(l,A.d(["first_name",a.b,"last_name",k,"phone",i,"address1",h,"address2",g,"zip",f,"city","Singapore","country","Singapore","province","Singapore"],t.N,t.u)),$async$EB)
 case 6:A.iV("Collection added to user's addresses successfully")
 q=1
 s=5
