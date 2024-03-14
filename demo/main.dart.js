@@ -111838,7 +111838,7 @@ case 9:q.c=b
 case 8:return A.t(null,r)}})
 return A.u($async$oj,r)}}
 A.aZe.prototype={
-$1(a){return new A.rs(new A.aOE($.DK().a,"https://koufu.essedigital.dev/storefront/api/v1"))},
+$1(a){return new A.rs(new A.aOE($.DK().a,"https://demo.essedigital.dev/storefront/api/v1"))},
 $S:772}
 A.rs.prototype={
 Bl(a){return this.a9t(a)},
