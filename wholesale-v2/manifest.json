@@ -1,6 +1,6 @@
 {
-    "name": "wholesale",
-    "short_name": "wholesale",
+    "name": "essemerchant",
+    "short_name": "essemerchant",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
